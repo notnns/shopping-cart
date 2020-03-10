@@ -16,7 +16,7 @@
       <div class="container">
          <div class="cart">
             <div class="col-md-12 col-lg-10 mx-auto">
-               <div class="cart-item">
+               <div class="cart-item" id="item-1">
                   <div class="row">
                      <div class="col-md-7 center-item">
                         <img src="images/product-1.png" alt="">
@@ -25,17 +25,18 @@
 
                      <div class="col-md-5 center-item">
                         <div class="input-group number-spinner">
-                           <button class="btn btn-default"><i class="fas fa-minus"></i></button>
-                           <input type="text" class="form-control text-center" value="1">
-                           <button class="btn btn-default"><i class="fas fa-plus"></i></button>
+                           <button class="btn btn-default" id="minus-button-1"><i class="fas fa-minus"></i></button>
+                           <input type="text" class="form-control text-center" value="1" id="quantity-box-1">
+                           <button class="btn btn-default" id="plus-button-1"><i class="fas fa-plus"></i></button>
                         </div>
                         <h5>$1219</h5>
-                        <img src="images/remove.png" alt="" class="remove-item">
+                        <a href="#"><img src="images/remove.png" alt="" class="remove-item" id="removed1"></a>
+                       
                      </div>
                   </div>
                </div>
 
-               <div class="cart-item">
+               <div class="cart-item" id="item-2">
                   <div class="row">
                      <div class="col-md-7 center-item mx-auto">
                         <img src="images/product-2.png" alt="">
@@ -43,16 +44,17 @@
                      </div>
                      <div class="col-md-5 center-item">
                         <div class="input-group number-spinner">
-                           <button class="btn btn-default"><i class="fas fa-minus"></i></button>
-                           <input type="text" class="form-control text-center" value="1">
-                           <button class="btn btn-default"><i class="fas fa-plus"></i></button>
+                           <button class="btn btn-default" id="minus-button-2"><i class="fas fa-minus"></i></button>
+                           <input type="text" class="form-control text-center" value="1" id="quantity-box-2">
+                           <button class="btn btn-default" id="plus-button-2"><i class="fas fa-plus"></i></button>
 
                         </div>
                         <h5>$59</h5>
-                        <img src="images/remove.png" alt="" class="remove-item">
+                        <a href="#"><img src="images/remove.png" alt="" class="remove-item" id="removed2"></a>
                      </div>
                   </div>
                </div>
+
 
                <div class="cart-item">
                   <div class="row">
@@ -64,9 +66,9 @@
                      </div>
 
                      <div class="col-md-4 status">
-                        <h5>$1,278</h5>
-                        <h5>$0</h5>
-                        <h5>$1,278</h5>
+                        <h5><span id="sub-total-text">1,278</span></h5>
+                        <h5>$<span id="tax-text">0</span></h5>
+                        <h5>$<span id="grand-total-text">1,278</span></h5>
                      </div>
                   </div>
                </div>
@@ -77,6 +79,41 @@
          </div>
       </div>
    </section>
+
+
+   <script>
+
+      function itemRemove(removeButton, itemID){
+         const removeThis = document.getElementById(removeButton);
+         removeThis.addEventListener("click", function () {
+            const itemArea = document.getElementById(itemID);
+            itemArea.style.display = "none";
+         });
+      }
+
+      itemRemove("removed1","item-1");
+      itemRemove("removed2","item-2");
+
+      function plusButtonAction(plusButton, itemQuantity){
+         document.getElementById(plusButton).addEventListener("click", function () {
+            document.getElementById(itemQuantity).value = parseFloat(document.getElementById(itemQuantity).value)+1;
+            console.log(document.getElementById(itemQuantity).value);
+
+
+            
+            
+
+
+         });
+      }
+
+      plusButtonAction("plus-button-1", "quantity-box-1");
+      plusButtonAction("plus-button-2", "quantity-box-2");
+
+      
+      
+
+   </script>
 </body>
 
 </html>
