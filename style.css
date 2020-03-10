@@ -63,3 +63,35 @@ body{
 	display: none;
 }
 
+.hide-this{
+	display: none;
+}
+
+
+.title-style{
+	text-align: center;
+	color: blueviolet;
+	font-weight: bolder;
+	margin-bottom: 40px;
+}
+
+
+.payment-summary{
+	text-align: center;
+	color: hotpink;
+	margin-bottom: 40px;
+	display: none;
+}
+
+
+.bank-btn{
+    float: center;
+    padding: 10px 30px;
+	font-size: 19px;
+	background-color: #2FBE70;
+	border: none;
+}
+
+.price-float{
+	float: right;
+}
